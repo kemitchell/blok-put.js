@@ -1,6 +1,4 @@
-var stringify = require('blok-stringify')
-
-function blokPut(level, hash, value, callback) {
+function blokPut(level, stringify, hash, value, callback) {
   var stringified = stringify(value)
   var digest = hash(stringified)
   level.put(digest, stringified, function(error) {

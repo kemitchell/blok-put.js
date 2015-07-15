@@ -1,4 +1,5 @@
 var blokPut = require('./')
+var blokStringify = require('blok-stringify')
 var isSHA256 = require('is-sha-256-hex-digest')
 var levelup = require('levelup')
 var memdown = require('memdown')
@@ -8,6 +9,7 @@ var test = require('tape');
 test('put an empty object', function(t) {
   blokPut(
     levelup({ db: memdown }),
+    blokStringify,
     sha256,
     {},
     function(error, digest) {
